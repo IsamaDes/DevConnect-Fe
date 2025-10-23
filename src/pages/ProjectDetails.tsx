@@ -1,123 +1,3 @@
-// import { useState, useEffect } from "react";
-// import { getProjects, commentOnProject } from "../services/DeveloperService";
-// import { Link } from "react-router-dom";
-
-
-// function ProjectDetails() {
-//   const [projects, setProjects] = useState<any[]>([]);
-//   const [commentText, setCommentText] = useState("");
-//   const [activeProject, setActiveProject] = useState<string | null>(null);
-
-//   useEffect(() => {
-//     const fetchProjects = async () => {
-//       try {
-//         const response = await getProjects();
-//         console.log("loaded projects", response);
-//         setProjects(response);
-//       } catch (error) {
-//         console.error("Failed to load projects:", error);
-//       }
-//     };
-//     fetchProjects();
-//   }, []);
-
-//   const handleComment = async (projectId: string) => {
-//     if (!commentText.trim()) return;
-//     try {
-//       await commentOnProject(projectId, commentText);
-//       setCommentText("");
-//       const updated = await getProjects();
-//       setProjects(updated);
-//     } catch (error) {
-//       console.error("Failed to comment:", error);
-//     }
-//   };
-
-//   return (
-//      <div><nav className="bg-purple-600 text-white p-4 mb-5 flex gap-4">
-//         <Link to="/developer-profile">Profile</Link>
-//         <Link to="/create-project">Create-Project</Link>
-//         <Link to="/view-projects">View-Projects</Link>
-//         <Link to="/settings">Settings</Link>
-//         </nav>
-//     <div className="p-8 w-1/2">
-//       <h1 className="text-3xl font-bold mb-6">All Projects</h1>
-
-//       {projects.map((project) => (
-//         <div
-//           key={project._id}
-//           className="bg-white rounded-lg p-5 mb-6 border "
-//         >
-//           <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-//             {project.title}
-//           </h2>
-//           <p className="text-gray-600 mb-4">{project.description}</p>
-
-//           <div className="mb-4">
-//             <h3 className="font-semibold text-gray-700 mb-1">Comments</h3>
-//             {project.comments?.length ? (
-//               <ul className="space-y-1">
-//                 {project.comments.map((comment: any) => (
-//                 <div key={comment._id} className="border-t py-2">
-//                 <p className="text-gray-800">
-//                 <strong>{comment.user?.name || "Unknown User"}:</strong> {comment.text}
-//                 </p>
-//                 </div>
-//                ))}
-//               </ul>
-//             ) : (
-//               <p className="text-gray-500 text-sm">No comments yet</p>
-//             )}
-//           </div>
-
-//           {activeProject === project._id ? (
-//             <div className="flex gap-2">
-//               <input
-//                 type="text"
-//                 value={commentText}
-//                 onChange={(e) => setCommentText(e.target.value)}
-//                 placeholder="Write a comment..."
-//                 className="flex-1 border border-gray-300 rounded-md px-3 py-2"
-//               />
-//               <button
-//                 onClick={() => handleComment(project._id)}
-//                 className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
-//               >
-//                 Post
-//               </button>
-//               <button
-//                 onClick={() => setActiveProject(null)}
-//                 className="px-3 py-2 bg-gray-200 rounded-md text-gray-700"
-//               >
-//                 Cancel
-//               </button>
-//             </div>
-//           ) : (
-//             <button
-//               onClick={() => setActiveProject(project._id)}
-//               className="text-blue-600 text-sm font-medium"
-//             >
-//               Add Comment
-//             </button>
-//           )}
-//         </div>
-//       ))}
-//     </div>
-//     </div>
-//   );
-// }
-
-// export default ProjectDetails;
-
-
-
-
-
-
-
-
-
-
 import { useState, useEffect } from "react";
 import { getProjects, commentOnProject } from "../services/DeveloperService";
 import { Link } from "react-router-dom";
@@ -131,6 +11,7 @@ function ProjectDetails() {
     const fetchProjects = async () => {
       try {
         const response = await getProjects();
+        console.log("create response", response)
         setProjects(response);
       } catch (error) {
         console.error("Failed to load projects:", error);
@@ -182,13 +63,18 @@ function ProjectDetails() {
         )}
 
         <div className="space-y-8">
-          {projects.map((project) => (
+          {projects.map((project) => {
+             return(
             <div
               key={project._id}
               className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
               <h2 className="text-2xl font-semibold text-gray-800 mb-1">
                 {project.title}
+                  <span className="text-sm text-gray-500 ml-2">
+                    👤 by {project.createdBy?.name || "Unknown"}
+                  </span>
+
               </h2>
               <p className="text-gray-600 mb-4">{project.description}</p>
 
@@ -249,8 +135,8 @@ function ProjectDetails() {
                   ➕ Add Comment
                 </button>
               )}
-            </div>
-          ))}
+            </div>)
+})}
         </div>
       </main>
     </div>

@@ -15,7 +15,8 @@ function CreateProject() {
     if (!title || !description) return;
     setLoading(true);
     try {
-      await createProject(title, description);
+      const response = await createProject(title, description);
+      console.log("create response", response)
       setTitle("");
       setDescription("");
     //   onCreated(); 
