@@ -156,16 +156,16 @@ function ProjectDetails() {
       {/* Navbar */}
       <nav className="bg-gradient-to-r from-purple-700 to-indigo-600 shadow-md text-white p-4 mb-8">
         <div className="max-w-6xl mx-auto flex flex-wrap gap-6 justify-center font-medium text-sm sm:text-base">
-          <Link to="/developer-profile" className="hover:text-gray-200 transition-colors">
+          <Link to="/developer-profile" className="hover:text-gray-200  p-1 transition-colors">
             Profile
           </Link>
-          <Link to="/create-project" className="hover:text-gray-200 transition-colors">
+          <Link to="/create-project" className="hover:text-gray-200 p-1 transition-colors">
             Create Project
           </Link>
-          <Link to="/view-projects" className="hover:text-gray-200 transition-colors">
+          <Link to="/view-projects" className="hover:text-gray-200 bg-purple-700 border-purple-500 rounded-md p-1 transition-colors">
             View Projects
           </Link>
-          <Link to="/settings" className="hover:text-gray-200 transition-colors">
+          <Link to="/settings" className="hover:text-gray-200 p-1 transition-colors">
             Settings
           </Link>
         </div>

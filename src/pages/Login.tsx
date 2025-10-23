@@ -7,7 +7,6 @@ import { loginUser } from "../services/authService";
 import { Eye, EyeOff } from 'lucide-react';
 
 
-
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -15,7 +14,7 @@ const Login = () => {
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [role, setRole] = useState("");
+  // const [ setRole] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +24,7 @@ const Login = () => {
     try {
       const response = await loginUser({ email, password });     
       const userRole =  response.data.role;
-      setRole(userRole);     
+         
       if (userRole === "admin") navigate("/admin-profile");
       else if (userRole === "developer") navigate("/developer-profile");
       else navigate("/login");

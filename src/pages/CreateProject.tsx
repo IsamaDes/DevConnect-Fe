@@ -36,13 +36,13 @@ function CreateProject() {
           <Link to="/developer-profile" className="hover:text-gray-200 transition-colors">
             Profile
           </Link>
-          <Link to="/create-project" className="hover:text-gray-200 transition-colors">
+          <Link to="/create-project" className="hover:text-gray-200 bg-purple-700 border-purple-500 rounded-md p-1 transition-colors">
             Create Project
           </Link>
-          <Link to="/view-projects" className="hover:text-gray-200 transition-colors">
+          <Link to="/view-projects" className="hover:text-gray-200 p-1 transition-colors">
             View Projects
           </Link>
-          <Link to="/settings" className="hover:text-gray-200 transition-colors">
+          <Link to="/settings" className="hover:text-gray-200 p-1 transition-colors">
             Settings
           </Link>
         </div>
