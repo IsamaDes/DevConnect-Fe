@@ -59,7 +59,7 @@ const Login = () => {
     <div className=" h-screen flex md:flex-row">
       <div className="relative w-full md:w-1/2  md:h-auto">
         <img src="/taskimg.jpg"
-          alt="Healthy food"
+          alt="initiative"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white p-8">
