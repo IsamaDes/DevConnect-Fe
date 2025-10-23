@@ -63,9 +63,9 @@ const Login = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white p-8">
-          <h1 className="text-3xl font-bold mb-2">Taskify</h1>
+          <h1 className="text-3xl font-bold mb-2">DevConnect</h1>
           <p className="text-sm md:text-base opacity-90">
-            Manage your tasks without an itch.
+            Ideas flourish in a network.
           </p>
         </div>
       </div>
