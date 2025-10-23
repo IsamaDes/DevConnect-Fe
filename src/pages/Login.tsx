@@ -7,6 +7,7 @@ import { loginUser } from "../services/authService";
 import { Eye, EyeOff } from 'lucide-react';
 
 
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -25,8 +26,8 @@ const Login = () => {
       const response = await loginUser({ email, password });     
       const userRole =  response.data.role;
       setRole(userRole);     
-      if (userRole === "admin") navigate("/admin");
-      else if (userRole === "developer") navigate("/developer");
+      if (userRole === "admin") navigate("/admin-profile");
+      else if (userRole === "developer") navigate("/developer-profile");
       else navigate("/login");
     } catch (err: any) {
        if (err.response) {

@@ -13,7 +13,7 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
-    role: "client",
+    role: "developer",
   });
   const [showPassword, setShowPassword] = useState(false);
 
@@ -53,14 +53,14 @@ const Register = () => {
   return (
     <div className=" h-screen flex md:flex-row">
       <div className="relative w-full md:w-1/2  md:h-auto">
-        <img src="/study.png"
+        {/* <img src="/study.png"
           alt="Healthy food"
           className="absolute inset-0 w-full h-full object-cover"
-        />
+        /> */}
         <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white p-8">
-          <h1 className="text-3xl font-bold mb-2">Taskify</h1>
+          <h1 className="text-3xl font-bold mb-2">DevConnect</h1>
           <p className="text-sm md:text-base opacity-90">
-            Manage your tasks without an itch.
+            Ideas rule the world.
           </p>
         </div>
       </div>
@@ -131,8 +131,7 @@ const Register = () => {
           className="border border-gray-300 p-2 mb-4 w-full rounded-md"
           required>
           <option value="">Select Role</option>
-          <option value="client">Client</option>
-          <option value="nutritionist">Nutritionist</option>
+          <option value="developer">developer</option>
           <option value="admin">Admin</option>
           </select>
         <button
