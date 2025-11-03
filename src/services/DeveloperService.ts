@@ -6,8 +6,8 @@ import type{ User } from "../types/User";
 
 export const getDeveloperProfile = async (): Promise<User> => {
   try{
-     const response = await axiosInstance.get("/user/me");
-     return response.data.data;
+   const response = await axiosInstance.get("/user/me");
+   return response.data.data;
   }catch(error: any){
    logAxiosError(error, "CLIENT_PROFILE");
    throw error.response?.data || error;
